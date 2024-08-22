@@ -1,3 +1,5 @@
+# Copyright 2024 - David Brown <david.brown@pterabytegames.com>
+# SPDX-License-Identifier: MIT
 set (INSTALL_GTEST OFF CACHE BOOL "Enable SDL installation target")
 
 FetchContent_Declare (

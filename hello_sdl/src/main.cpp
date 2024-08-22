@@ -1,5 +1,5 @@
-// Copyright - 2024 David Brown <d.brown@bigdavedev.com>
-// SPDX-License-Identifier: MIT
+// Copyright 2024 - David Brown <david.brown@pterabytegames.com>
+// SPDX-License-Identifier: MPL-2.0
 #include "ptb/hello/hello.hpp"
 
 #include "SDL3/SDL_init.h"

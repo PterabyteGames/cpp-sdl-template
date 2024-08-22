@@ -1,4 +1,4 @@
-# Copyright 2024 - David Brown <d.brown@bigdavedev.com>
+# Copyright 2024 - David Brown <david.brown@pterabytegames.com>
 # SPDX-License-Identifier: MIT
 cmake_minimum_required (VERSION 3.25)
 

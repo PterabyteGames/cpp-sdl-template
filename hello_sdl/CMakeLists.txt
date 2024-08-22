@@ -1,3 +1,5 @@
+# Copyright 2024 - David Brown <david.brown@pterabytegames.com>
+# SPDX-License-Identifier: MIT
 add_executable (hello_sdl)
 
 target_sources (

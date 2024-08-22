@@ -1,3 +1,5 @@
+# Copyright 2024 - David Brown <david.brown@pterabytegames.com>
+# SPDX-License-Identifier: MIT
 include (GNUInstallDirs)
 if (NOT CMAKE_RUNTIME_OUTPUT_DIRECTORY)
 	set (CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_INSTALL_BINDIR})

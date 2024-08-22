@@ -1,3 +1,5 @@
+# Copyright 2024 - David Brown <david.brown@pterabytegames.com>
+# SPDX-License-Identifier: MIT
 add_library (ptb_hello)
 add_library (PtB::Hello ALIAS ptb_hello)
 
