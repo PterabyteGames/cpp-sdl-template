@@ -1,0 +1,56 @@
+{
+	"version": 6,
+	"include": [
+		"base.json",
+		"compilers.json",
+		"generators.json"
+	],
+	"configurePresets": [
+		{
+			"name": "ci-check-clang-tidy",
+			"displayName": "Clang Tidy",
+			"binaryDir": "build/${presetName}",
+			"inherits": [
+				"base",
+				"clang",
+				"ninja"
+			],
+			"cacheVariables": {
+				"CMAKE_CXX_CLANG_TIDY": {
+					"type": "STRING",
+					"value": "clang-tidy"
+				},
+				"PTB_ENABLE_TESTING": {
+					"type": "BOOL",
+					"value": "FALSE"
+				},
+				"PTB_ENABLE_INSTALL": {
+					"type": "BOOL",
+					"value": "FALSE"
+				},
+				"PTB_BUILD_DOCS": {
+					"type": "BOOL",
+					"value": "FALSE"
+				}
+			}
+		}
+	],
+	"buildPresets": [
+		{
+			"name": "ci-check-clang-tidy",
+			"displayName": "Clang Tidy",
+			"configurePreset": "ci-check-clang-tidy",
+			"targets": "all"
+		}
+	],
+	"workflowPresets": [
+		{
+			"name": "ci-check-clang-tidy",
+			"displayName": "Clang Tidy",
+			"steps": [
+				{ "type": "configure", "name": "ci-check-clang-tidy" },
+				{ "type": "build",     "name": "ci-check-clang-tidy" }
+			]
+		}
+	]
+}

@@ -1,0 +1,19 @@
+name: Sanitize
+on: [push]
+jobs:
+  sanitize:
+    strategy:
+      matrix:
+        sanitizer: [ub, address, leak, thread]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: 'recursive'
+      - name: Setup C++
+        uses: aminya/setup-cpp@v1
+        with:
+          compiler: llvm-18
+          cmake: 3.28.1
+          ninja: true
+      - run: cmake --workflow --preset ci-sanitize-${{ matrix.sanitizer }}

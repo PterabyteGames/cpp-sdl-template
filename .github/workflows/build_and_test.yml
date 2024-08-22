@@ -1,0 +1,37 @@
+name: Build and Test
+on: [push]
+jobs:
+  build-test:
+    strategy:
+      matrix:
+        os:
+          - windows-2022
+          - ubuntu-22.04
+        compiler:
+          - llvm-18
+          - msvc
+        exclude:
+          - os: ubuntu-22.04
+            compiler: msvc
+          - os: windows-2022
+            compiler: llvm-18
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: 'recursive'
+      - name: Setup C++
+        uses: aminya/setup-cpp@v1
+        with:
+          compiler: ${{ matrix.compiler }}
+          vcvarsall: ${{ contains(matrix.os, 'windows') }}
+          cmake: 3.28.1
+          ninja: true
+
+      - name: Build and test (Windows)
+        if: runner.os == 'Windows'
+        run: cmake --workflow --preset ci-windows-vs2022-cl-ninja-test
+
+      - name: Build and test (Linux)
+        if: runner.os != 'Windows'
+        run: cmake --workflow --preset ci-linux-clang-ninja-test
