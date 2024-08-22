@@ -19,6 +19,10 @@
 				"PTB_ENABLE_TESTING": {
 					"type": "BOOL",
 					"value": "FALSE"
+				},
+				"PTB_BUILD_DOCS": {
+					"type": "BOOL",
+					"value": "TRUE"
 				}
 			}
 		}

@@ -10,7 +10,7 @@ project (
 	HOMEPAGE_URL "https://github.com/PterabyteGames/cpp-sdl-template.git"
 )
 
-option (PTB_BUILD_DOCS "Generate documentation" ON)
+option (PTB_BUILD_DOCS "Generate documentation" OFF)
 option (PTB_ENABLE_TESTING "Enable running tests" ON)
 option (PTB_ENABLE_INSTALL "Enable packaging" ON)
 
