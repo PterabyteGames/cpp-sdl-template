@@ -45,10 +45,17 @@ if (PTB_ENABLE_INSTALL)
 		RUNTIME
 	)
 
-	set (CPACK_DEBIAN_FILE_NAME DEB-DEFAULT)
-	set (CPACK_DEBIAN_PACKAGE_SECTION Miscellaneous)
-	set (CPACK_DEBIAN_PACKAGE_MAINTAINER "Maintainer Name")
-	set (CPACK_PACKAGING_INSTALL_PREFIX "/opt/${CPACK_PAGKAGE_NAME}")
+	install (
+		DIRECTORY data
+		TYPE DATA
+	)
+
+	set (CPACK_PACKAGE_CONTACT "David Brown <david.brown@pterabytegames.com>")
+
+	if (LINUX)
+		set (CPACK_DEBIAN_PACKAGE_SECTION "games")
+		set (CPACK_PACKAGING_INSTALL_PREFIX "/opt/${CPACK_PAGKAGE_NAME}")
+	endif ()
 
 	# Generate a GUID to use here. Open PowerShell and copy/paste the following:
 	# [guid]::NewGuid()
