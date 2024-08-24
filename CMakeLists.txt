@@ -32,6 +32,7 @@ add_subdirectory (libs)
 add_subdirectory (hello_sdl)
 
 if (PTB_ENABLE_INSTALL)
+	include (InstallRequiredSystemLibraries)
 	install (
 		TARGETS hello_sdl
 		RUNTIME
