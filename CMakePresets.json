@@ -117,8 +117,7 @@
 			"name": "ci-test-base",
 			"hidden": true,
 			"output": {
-				"outputOnFailure": true,
-				"outputJUnitFile": "${presetName}-report.xml"
+				"outputOnFailure": true
 			}
 		},
 		{
@@ -197,27 +196,57 @@
 			"name": "ci-windows-vs2022-cl-ninja-test",
 			"displayName": "Configure, build, test on Windows with MSVC",
 			"steps": [
-				{ "type": "configure", "name": "ci-windows-vs2022-cl-ninja" },
-				{ "type": "build",     "name": "ci-windows-vs2022-cl-ninja-release" },
-				{ "type": "test",      "name": "ci-windows-vs2022-cl-ninja-test-release" }
+				{ "type": "configure", "name": "ci-windows-vs2022-cl-ninja"            },
+				{	"type": "build",     "name": "ci-windows-vs2022-cl-ninja-debug"	     },
+				{	"type": "test",      "name": "ci-windows-vs2022-cl-ninja-test-debug" }
 			]
 		},
 		{
 			"name": "ci-linux-clang-ninja-test",
 			"displayName": "Configure, build, test on Linux with Clang",
 			"steps": [
-				{ "type": "configure", "name": "ci-linux-clang-ninja" },
-				{ "type": "build",     "name": "ci-linux-clang-ninja-release" },
-				{ "type": "test",      "name": "ci-linux-clang-ninja-test-release" }
+				{	"type": "configure", "name": "ci-linux-clang-ninja"            },
+				{ "type": "build",     "name": "ci-linux-clang-ninja-debug"      },
+				{	"type": "test",      "name": "ci-linux-clang-ninja-test-debug" }
 			]
 		},
 		{
 			"name": "ci-linux-gcc-ninja-test",
 			"displayName": "Configure, build, test on Linux with GCC",
 			"steps": [
-				{ "type": "configure", "name": "ci-linux-gcc-ninja" },
-				{ "type": "build",     "name": "ci-linux-gcc-ninja-release" },
-				{ "type": "test",      "name": "ci-linux-gcc-ninja-test-release" }
+				{	"type": "configure", "name": "ci-linux-gcc-ninja"            },
+				{ "type": "build",     "name": "ci-linux-gcc-ninja-debug"      },
+				{ "type": "test",      "name": "ci-linux-gcc-ninja-test-debug" }
+			]
+		},
+		{
+			"name": "ci-windows-vs2022-cl-ninja-package",
+			"displayName": "Configure, build, test, and package on Windows with MSVC",
+			"steps": [
+				{	"type": "configure", "name": "ci-windows-vs2022-cl-ninja"              },
+				{ "type": "build",     "name": "ci-windows-vs2022-cl-ninja-release"      },
+				{	"type": "test",      "name": "ci-windows-vs2022-cl-ninja-test-release" },
+				{ "type": "package",   "name": "ci-windows-vs2022-cl-ninja-package"      }
+			]
+		},
+		{
+			"name": "ci-linux-clang-ninja-package",
+			"displayName": "Configure, build, test, and package on Linux with Clang",
+			"steps": [
+				{ "type": "configure", "name": "ci-linux-clang-ninja"              },
+				{	"type": "build",     "name": "ci-linux-clang-ninja-release"      },
+				{	"type": "test",      "name": "ci-linux-clang-ninja-test-release" },
+				{	"type": "package",   "name": "ci-linux-clang-ninja-package"      }
+			]
+		},
+		{
+			"name": "ci-linux-gcc-ninja-package",
+			"displayName": "Configure, build, test, and package on Linux with GCC",
+			"steps": [
+				{	"type": "configure", "name": "ci-linux-gcc-ninja"              },
+				{	"type": "build",     "name": "ci-linux-gcc-ninja-release"      },
+				{	"type": "test",      "name": "ci-linux-gcc-ninja-test-release" },
+				{	"type": "package",   "name": "ci-linux-gcc-ninja-package"      }
 			]
 		}
 	]
