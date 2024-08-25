@@ -53,8 +53,12 @@ if (PTB_ENABLE_INSTALL)
 	set (CPACK_PACKAGE_CONTACT "David Brown <david.brown@pterabytegames.com>")
 
 	if (LINUX)
+		install (
+			FILES extra/packaging/debian/launch.sh
+			DESTINATION .
+		)
 		set (CPACK_DEBIAN_PACKAGE_SECTION "games")
-		set (CPACK_PACKAGING_INSTALL_PREFIX "/opt/${CPACK_PAGKAGE_NAME}")
+		set (CPACK_PACKAGING_INSTALL_PREFIX "/opt/${PROJECT_NAME}")
 	endif ()
 
 	# Generate a GUID to use here. Open PowerShell and copy/paste the following:

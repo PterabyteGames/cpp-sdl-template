@@ -7,3 +7,4 @@ if (PTB_ENABLE_TESTING)
 endif ()
 
 add_subdirectory (sdl)
+add_subdirectory (fmt)
