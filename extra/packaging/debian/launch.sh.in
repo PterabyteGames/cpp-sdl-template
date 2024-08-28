@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-pushd "$(dirname "$0")"
-
-LD_LIBRARY_PATH=./lib ./bin/hello_sdl
-
-popd

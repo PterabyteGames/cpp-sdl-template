@@ -33,32 +33,48 @@ add_subdirectory (hello_sdl)
 
 if (PTB_ENABLE_INSTALL)
 	include (InstallRequiredSystemLibraries)
-	install (
-		TARGETS hello_sdl
-		RUNTIME
-	)
+
+	install (TARGETS hello_sdl RUNTIME)
 
 	get_target_property (SDL3InstallTarget SDL3::SDL3 ALIASED_TARGET)
+	install (TARGETS ${SDL3InstallTarget} RUNTIME)
 
-	install (
-		TARGETS ${SDL3InstallTarget}
-		RUNTIME
-	)
-
-	install (
-		DIRECTORY data
-		TYPE DATA
-	)
+	install (DIRECTORY data	TYPE DATA)
 
 	set (CPACK_PACKAGE_CONTACT "David Brown <david.brown@pterabytegames.com>")
 
 	if (LINUX)
 		install (
-			FILES extra/packaging/debian/launch.sh
-			DESTINATION .
+			FILES extra/packaging/debian/icon.png
+			DESTINATION ${CMAKE_INSTALL_DATADIR}/pixmaps
 		)
 		set (CPACK_DEBIAN_PACKAGE_SECTION "games")
 		set (CPACK_PACKAGING_INSTALL_PREFIX "/opt/${PROJECT_NAME}")
+		set (
+			CPACK_DEBIAN_PACKAGE_CONTROL_EXTRA
+			${PROJECT_BINARY_DIR}/extra/packaging/debian/postinst
+			${PROJECT_BINARY_DIR}/extra/packaging/debian/postrm
+		)
+		configure_file (
+			extra/packaging/debian/template.desktop.in
+			${PROJECT_BINARY_DIR}/extra/packaging/debian/PtB-${PROJECT_NAME}.desktop
+			@ONLY
+		)
+		configure_file (
+			extra/packaging/debian/postinst.in
+			${PROJECT_BINARY_DIR}/extra/packaging/debian/postinst
+			@ONLY
+		)
+		configure_file (
+			extra/packaging/debian/postrm.in
+			${PROJECT_BINARY_DIR}/extra/packaging/debian/postrm
+			@ONLY
+		)
+		install (
+			FILES ${PROJECT_BINARY_DIR}/extra/packaging/debian/PtB-${PROJECT_NAME}.desktop
+			DESTINATION ${CMAKE_INSTALL_DATADIR}/applications
+		)
+
 	endif ()
 
 	# Generate a GUID to use here. Open PowerShell and copy/paste the following:
