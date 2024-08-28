@@ -42,6 +42,7 @@ if (PTB_ENABLE_INSTALL)
 	install (DIRECTORY data	TYPE DATA)
 
 	set (CPACK_PACKAGE_CONTACT "David Brown <david.brown@pterabytegames.com>")
+	set (CPACK_PACKAGE_EXECUTABLES "hello_sdl" "HelloSDL")
 
 	if (LINUX)
 		install (
@@ -74,7 +75,6 @@ if (PTB_ENABLE_INSTALL)
 			FILES ${PROJECT_BINARY_DIR}/extra/packaging/debian/PtB-${PROJECT_NAME}.desktop
 			DESTINATION ${CMAKE_INSTALL_DATADIR}/applications
 		)
-
 	endif ()
 
 	# Generate a GUID to use here. Open PowerShell and copy/paste the following:
