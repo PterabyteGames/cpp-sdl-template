@@ -24,6 +24,8 @@ jobs:
         with:
           submodules: 'recursive'
 
+      - uses: ilammy/msvc-dev-cmd@v1
+
       - name: Build and test (Windows)
         if: runner.os == 'Windows'
         run: cmake --workflow --preset ci-windows-${{ matrix.compiler }}-cl-ninja-test
