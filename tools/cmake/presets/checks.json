@@ -24,7 +24,7 @@
 					"type": "BOOL",
 					"value": "FALSE"
 				},
-				"PTB_ENABLE_INSTALL": {
+				"PTB_ENABLE_PACKAGING": {
 					"type": "BOOL",
 					"value": "FALSE"
 				},

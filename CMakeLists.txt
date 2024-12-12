@@ -12,7 +12,7 @@ project (
 
 option (PTB_BUILD_DOCS "Generate documentation" OFF)
 option (PTB_ENABLE_TESTING "Enable running tests" ON)
-option (PTB_ENABLE_INSTALL "Enable packaging" ON)
+option (PTB_ENABLE_PACKAGING "Enable packaging" ON)
 
 list (PREPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/tools/cmake)
 
@@ -31,7 +31,7 @@ add_subdirectory (external)
 add_subdirectory (libs)
 add_subdirectory (hello_sdl)
 
-if (PTB_ENABLE_INSTALL)
+if (PTB_ENABLE_PACKAGING)
 	include (InstallRequiredSystemLibraries)
 
 	install (TARGETS hello_sdl RUNTIME)
