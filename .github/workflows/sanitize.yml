@@ -5,15 +5,10 @@ jobs:
     strategy:
       matrix:
         sanitizer: [ub, address, leak, thread]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
         with:
           submodules: 'recursive'
-      - name: Setup C++
-        uses: aminya/setup-cpp@v1
-        with:
-          compiler: llvm-18
-          cmake: 3.28.1
-          ninja: true
+
       - run: cmake --workflow --preset ci-sanitize-${{ matrix.sanitizer }}

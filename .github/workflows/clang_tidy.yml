@@ -2,16 +2,10 @@ name: Clang Tidy
 on: [push]
 jobs:
   static-analysis:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
         with:
           submodules: 'recursive'
-      - name: Setup C++
-        uses: aminya/setup-cpp@v1
-        with:
-          compiler: llvm-18
-          cmake: 3.28.1
-          ninja: true
-          clangtidy: true
+
       - run: cmake --workflow --preset ci-check-clang-tidy
