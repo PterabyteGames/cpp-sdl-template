@@ -16,9 +16,9 @@
 				"ninja"
 			],
 			"cacheVariables": {
-				"CMAKE_CXX_CLANG_TIDY": {
-					"type": "STRING",
-					"value": "clang-tidy"
+				"PTB_ENABLE_CLANG_TIDY": {
+					"type": "BOOL",
+					"value": "TRUE"
 				},
 				"PTB_ENABLE_TESTING": {
 					"type": "BOOL",

@@ -30,6 +30,11 @@ if (PTB_BUILD_DOCS)
 endif ()
 
 add_subdirectory (external)
+
+if (PTB_ENABLE_CLANG_TIDY)
+	set (CMAKE_CXX_CLANG_TIDY "clang-tidy")
+endif ()
+
 add_subdirectory (libs)
 add_subdirectory (hello_sdl)
 
