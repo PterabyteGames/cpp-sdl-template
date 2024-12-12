@@ -13,7 +13,7 @@ jobs:
           - vs2022
         exclude:
           - os: ubuntu-24.04
-            compiler: vs2022-cl
+            compiler: vs2022
           - os: windows-2022
             compiler: gcc
     runs-on: ${{ matrix.os }}
