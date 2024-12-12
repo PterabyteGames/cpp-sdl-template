@@ -24,6 +24,5 @@ target_link_libraries (
 	PtB::CompilerFlags
 	PtB::Hello
 	SDL3::SDL3
-	fmt::fmt
 )
 

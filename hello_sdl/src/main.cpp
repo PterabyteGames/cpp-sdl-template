@@ -7,15 +7,14 @@
 #include "SDL3/SDL_main.h"
 #include "SDL3/SDL_messagebox.h"
 
+#include <format>
 #include <iostream>
-
-#include "fmt/core.h"
 
 int main(int /*argc*/, char** /*argv*/)
 {
 	if (!SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS))
 	{
-		std::cerr << fmt::format("Error initialising SDL: {}\n",
+		std::cerr << std::format("Error initialising SDL: {}\n",
 		                         SDL_GetError());
 		return -1;
 	}
