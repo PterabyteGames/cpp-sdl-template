@@ -16,6 +16,8 @@ jobs:
             compiler: vs2022
           - os: windows-2022
             compiler: gcc
+          - os: windows-2022
+            compiler: clang
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
