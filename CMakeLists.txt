@@ -1,10 +1,10 @@
 # Copyright 2024 - David Brown <david.brown@pterabytegames.com>
 # SPDX-License-Identifier: MIT
-cmake_minimum_required (VERSION 3.25)
+cmake_minimum_required (VERSION 3.31)
 
 list (PREPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/tools/cmake)
 
-include (EnsureNinja)
+include (InstallBuildTools)
 
 project (
 	HelloSDL
