@@ -2,6 +2,10 @@
 # SPDX-License-Identifier: MIT
 cmake_minimum_required (VERSION 3.25)
 
+list (PREPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/tools/cmake)
+
+include (EnsureNinja)
+
 project (
 	HelloSDL
 	VERSION 0.1.0
@@ -13,8 +17,6 @@ project (
 option (PTB_BUILD_DOCS "Generate documentation" OFF)
 option (PTB_ENABLE_TESTING "Enable running tests" ON)
 option (PTB_ENABLE_PACKAGING "Enable packaging" ON)
-
-list (PREPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/tools/cmake)
 
 include (StageConfig)
 include (CompilerFlagsTarget)
