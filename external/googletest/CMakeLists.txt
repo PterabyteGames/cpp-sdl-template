@@ -1,11 +1,11 @@
-# Copyright 2024 - David Brown <david.brown@pterabytegames.com>
+# Copyright 2024-2025 - David Brown <david.brown@pterabytegames.com>
 # SPDX-License-Identifier: MIT
-set (INSTALL_GTEST OFF CACHE BOOL "Enable SDL installation target")
+set (INSTALL_GTEST OFF CACHE BOOL "Enable GTest installation target")
 
 FetchContent_Declare (
 	GTest
-	GIT_REPOSITORY https://github.com/google/googletest
-	GIT_TAG b514bdc898e2951020cbdca1304b75f5950d1f59 # v1.15.2
+	URL https://github.com/google/googletest/archive/refs/tags/v1.15.2.zip
+	URL_HASH MD5=eb1c5c237d13ed12bf492d3997ca6b0d # v1.15.2
 
 	SYSTEM
 	OVERRIDE_FIND_PACKAGE

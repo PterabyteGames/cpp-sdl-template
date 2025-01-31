@@ -1,9 +1,9 @@
-# Copyright 2024 - David Brown <david.brown@pterabytegames.com>
+# Copyright 2024-2025 - David Brown <david.brown@pterabytegames.com>
 # SPDX-License-Identifier: MIT
 FetchContent_Declare (
 	SDL3
-	GIT_REPOSITORY https://github.com/libsdl-org/SDL
-	GIT_TAG 2635239bbcbfdc9208427e7b18a26b771a2f6ac9 # main as of 2024-12-12 09:33
+	URL https://github.com/libsdl-org/SDL/archive/refs/tags/release-3.2.0.zip
+	URL_HASH MD5=c8b5efd263936b157e63bf5c1fad4bc6 # v3.2.0
 
 	SYSTEM
 	OVERRIDE_FIND_PACKAGE
