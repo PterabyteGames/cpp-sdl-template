@@ -9,6 +9,7 @@ FetchContent_Declare (
 
 	SYSTEM
 	OVERRIDE_FIND_PACKAGE
+	DOWNLOAD_NO_PROGRESS TRUE
 )
 
 FetchContent_MakeAvailable (GTest)

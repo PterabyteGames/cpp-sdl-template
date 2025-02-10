@@ -46,52 +46,16 @@ if (PTB_ENABLE_PACKAGING)
 	get_target_property (SDL3InstallTarget SDL3::SDL3 ALIASED_TARGET)
 	install (TARGETS ${SDL3InstallTarget} RUNTIME)
 
-	install (DIRECTORY data	TYPE DATA)
+	install (DIRECTORY data TYPE DATA)
 
 	set (CPACK_PACKAGE_CONTACT "David Brown <david.brown@pterabytegames.com>")
 	set (CPACK_PACKAGE_EXECUTABLES "hello_sdl" "HelloSDL")
 
 	if (LINUX)
-		install (
-			FILES extra/packaging/debian/icon.png
-			DESTINATION ${CMAKE_INSTALL_DATADIR}/pixmaps
-		)
-		set (CPACK_DEBIAN_PACKAGE_SECTION "games")
-		set (CPACK_PACKAGING_INSTALL_PREFIX "/opt/${PROJECT_NAME}")
-		set (
-			CPACK_DEBIAN_PACKAGE_CONTROL_EXTRA
-			${PROJECT_BINARY_DIR}/extra/packaging/debian/postinst
-			${PROJECT_BINARY_DIR}/extra/packaging/debian/postrm
-		)
-		configure_file (
-			extra/packaging/debian/template.desktop.in
-			${PROJECT_BINARY_DIR}/extra/packaging/debian/PtB-${PROJECT_NAME}.desktop
-			@ONLY
-		)
-		configure_file (
-			extra/packaging/debian/postinst.in
-			${PROJECT_BINARY_DIR}/extra/packaging/debian/postinst
-			@ONLY
-		)
-		configure_file (
-			extra/packaging/debian/postrm.in
-			${PROJECT_BINARY_DIR}/extra/packaging/debian/postrm
-			@ONLY
-		)
-		install (
-			FILES ${PROJECT_BINARY_DIR}/extra/packaging/debian/PtB-${PROJECT_NAME}.desktop
-			DESTINATION ${CMAKE_INSTALL_DATADIR}/applications
-		)
+		include (package/Linux)
+	elseif (WIN32)
+		include (package/Windows)
 	endif ()
 
-	# Generate a GUID to use here. Open PowerShell and copy/paste the following:
-	# [guid]::NewGuid()
-	# Copy the GUID and insert in to the variables below
-	#set (CPACK_WIX_UPGRADE_GUID "")
-	#set (CPACK_WIX_PRODUCT_GUID "")
-	set (CPACK_WIX_LICENSE_RTF  ${PROJECT_SOURCE_DIR}/extra/packaging/windows/licence.rtf)
-	set (CPACK_WIX_UI_BANNER    ${PROJECT_SOURCE_DIR}/extra/packaging/windows/installer_banner.bmp)
-	set (CPACK_WIX_UI_DIALOG    ${PROJECT_SOURCE_DIR}/extra/packaging/windows/installer_dialog.bmp)
-	set (CPACK_WIX_PRODUCT_ICON ${PROJECT_SOURCE_DIR}/extra/packaging/windows/installer_icon.ico)
 	include (CPack)
 endif ()

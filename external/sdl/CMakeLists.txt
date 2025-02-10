@@ -7,6 +7,7 @@ FetchContent_Declare (
 
 	SYSTEM
 	OVERRIDE_FIND_PACKAGE
+	DOWNLOAD_NO_PROGRESS TRUE
 )
 
 find_package (SDL3)
